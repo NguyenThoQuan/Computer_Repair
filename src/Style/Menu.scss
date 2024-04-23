@@ -1,0 +1,31 @@
+.menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 40px 0px 40px;
+    border-top: 3px solid #EDF5F4;
+    border-bottom: 3px solid #EDF5F4;
+
+    .border1,
+    .border2,
+    .border3,
+    .border4,
+    .border5 {
+        border-bottom: 5px solid black;
+        transition: 0.2s;
+    }
+
+    div {
+        background-color: #EDF5F4;
+        width: 240px;
+        text-align: center;
+        padding: 15px 0px 15px 0px;
+        cursor: pointer;
+
+        .active {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+            font-size: 18px;
+        }
+    }
+}

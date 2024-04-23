@@ -1,0 +1,66 @@
+.services {
+    display: flex;
+    justify-content: space-around;
+
+    .all-service {
+        margin: 15px 0px 15px 15px;
+        width: 55%;
+
+        .service {
+            display: flex;
+            border: 3px solid #EDF5F4;
+            border-radius: 30px;
+            margin: 10px 0px;
+            padding: 20px 25px;
+            height: 100px;
+
+            img {
+                border: 3px solid #EDF5F4;
+                border-radius: 15px;
+            }
+
+            .info-service {
+                margin-left: 15px;
+
+                .title {
+                    border-bottom: 3px solid #EDF5F4;
+                }
+
+                .content {
+                    margin-top: 5px;
+                    height: 40px;
+                    width: 500px;
+                }
+
+                span {
+                    font-weight: bold;
+                    padding: 2px;
+                }
+
+                button {
+                    background-color: #EDF5F4;
+                    text-align: center;
+                    border: none;
+                    border-radius: 15px;
+                    height: 30px;
+                    width: 120px;
+                    margin-left: 475px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .table-quotation {
+        margin: 22px 15px 22px 0px;
+
+        th,
+        td {
+            text-align: center;
+            padding: 5px;
+            background-color: #EDF5F4;
+            border-radius: 5px;
+        }
+    }
+}
