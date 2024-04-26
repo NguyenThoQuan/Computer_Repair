@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../../Style/Services.scss"
 import Quotation from "./Quotation";
 import ServicesInformation from "./ServicesInformation";
-import UsageService from "../AppointmentCalendar/UsageService";
 
 export default function Services() {
     const [listServices] = useState(
@@ -19,9 +18,6 @@ export default function Services() {
         <div className="services">
             <ServicesInformation listServices={listServices} />
             <Quotation listServices={listServices} />
-            <div style={{ display: "none" }}>
-                <UsageService listServices={listServices} />
-            </div>
         </div>
     )
 }
