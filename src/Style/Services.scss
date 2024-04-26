@@ -1,9 +1,8 @@
 .services {
     display: flex;
-    justify-content: space-around;
 
     .all-service {
-        margin: 15px 0px 15px 15px;
+        margin: 15px 0px 15px 45px;
         width: 55%;
 
         .service {
@@ -54,13 +53,20 @@
 
     .table-quotation {
         margin: 22px 15px 22px 0px;
+        position: fixed;
+        right: 100px;
+        height: 65%;
 
-        th,
-        td {
-            text-align: center;
-            padding: 5px;
-            background-color: #EDF5F4;
-            border-radius: 5px;
+        table {
+            height: 100%;
+
+            th,
+            td {
+                text-align: center;
+                padding: 5px;
+                background-color: #EDF5F4;
+                border-radius: 5px;
+            }
         }
     }
 }

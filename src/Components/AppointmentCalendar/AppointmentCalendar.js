@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../../Style/AppointmentCalendar.scss"
 import AppointmenInformation from "./AppointmentInformation";
-import UsageService from "./UsageService";
-import Information from "./Information";
+import Quotation from "../Services/Quotation";
 
 export default function AppointmentCalendar() {
     const [listServices] = useState(
@@ -17,10 +16,8 @@ export default function AppointmentCalendar() {
 
     return (
         <div className="appointment-calendar">
-            <AppointmenInformation />
-            <UsageService listServices={listServices} />
-            <div className="line"></div>
-            <Information />
+            <AppointmenInformation listServices={listServices} />
+            <Quotation listServices={listServices} />
         </div>
     )
 }

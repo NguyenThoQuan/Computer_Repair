@@ -38,11 +38,12 @@
         }
 
         .mo-ta-su-co {
-            height: 40%;
-            width: 98%;
+            height: 37.5%;
+            width: 96.5%;
             border: none;
             border-radius: 5px;
             background-color: #EDF5F4;
+            padding: 5px;
         }
 
         button {
@@ -65,23 +66,19 @@
         }
     }
 
-    .line {
-        border-left: 3px solid #EDF5F4;
-    }
+    .table-quotation {
+        margin: 0px 15px 22px 0px;
 
-    .Information {
-        border: 3px solid #EDF5F4;
-        border-radius: 20px;
-        padding: 10px 30px 30px 30px;
-        width: 300px;
+        table {
+            height: 105%;
 
-        h2 {
-            padding-bottom: 20px;
-            border-bottom: 3px solid #EDF5F4;
-        }
-
-        span {
-            font-weight: bold;
+            th,
+            td {
+                text-align: center;
+                padding: 5px;
+                background-color: #EDF5F4;
+                border-radius: 5px;
+            }
         }
     }
 }

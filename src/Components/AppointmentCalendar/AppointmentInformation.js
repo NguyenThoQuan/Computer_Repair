@@ -1,25 +1,35 @@
 import React, { useState } from "react";
+import UsageService from "./UsageService";
+import { toast } from "react-toastify";
 
-export default function AppointmenInformation() {
-    const [appointmenInformation, setAppointmenInformatio] = useState(
-        {
-            fullName: "",
-            email: "",
-            phone: "",
-            time: "",
-        }
-    )
+export default function AppointmenInformation(props) {
+    const { listServices } = props;
+    const [isSuccess, setIsSuccess] = useState(false)
+
+    const [fullName, setFullName] = useState("")
+    const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
 
     const handleFullName = (event) => {
-        setAppointmenInformatio({ fullName: event.target.value });
+        setFullName(event.target.value)
     }
 
     const handleEmail = (event) => {
-        setAppointmenInformatio({ email: event.target.value });
+        setEmail(event.target.value)
     }
 
-    const handleNumberPhone = (event) => {
-        setAppointmenInformatio({ phone: event.target.value });
+    const handlePhone = (event) => {
+        setPhone(event.target.value)
+    }
+
+    const handleClickButton = (event) => {
+        event.preventDefault();
+        if (fullName === "" || email === "" || phone === "") {
+            toast.warning("Không được bỏ trống thông tin !!!")
+            return;
+        } else {
+            setIsSuccess(true)
+        }
     }
 
     return (
@@ -27,11 +37,11 @@ export default function AppointmenInformation() {
             <form className="appointmen-information">
                 <h2 className="title-appointmen-information">Thông tin lịch hẹn</h2>
                 <label htmlFor="hoVaTen">Họ và tên</label><br />
-                <input type="text" value={appointmenInformation.fullName} onChange={(event) => handleFullName(event)}></input><br /><br />
+                <input type="text" value={fullName} onChange={(event) => handleFullName(event)}></input><br /><br />
                 <label htmlFor="email">Email</label><br />
-                <input type="text" value={appointmenInformation.email} onChange={(event) => handleEmail(event)}></input><br /><br />
+                <input type="text" value={email} onChange={(event) => handleEmail(event)}></input><br /><br />
                 <label htmlFor="sdt">Số điện thoại</label><br />
-                <input type="sdt" value={appointmenInformation.sdt} onChange={(event) => handleNumberPhone(event)}></input><br /><br />
+                <input type="sdt" value={phone} onChange={(event) => handlePhone(event)}></input><br /><br />
                 <label htmlFor="time">Thời gian lịch hẹn</label><br />
                 <select>
                     <option>7:00 AM - 8:00 AM</option>
@@ -43,8 +53,14 @@ export default function AppointmenInformation() {
                     <option>15:00 PM - 16:00 PM</option>
                     <option>16:00 PM - 17:00 PM</option>
                 </select><br /><br />
-                <button>Xác nhận</button>
+                <button onClick={handleClickButton}>Xác nhận</button>
             </form>
+            {
+                isSuccess === false ?
+                    <></>
+                    :
+                    <UsageService listServices={listServices} />
+            }
         </>
     )
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import "../../Style/Services.scss"
 
 export default function Quotation(props) {
     const { listServices } = props;
