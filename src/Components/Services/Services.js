@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import imageServices from "../../Images/ImageServices.jpg"
 import "../../Style/Services.scss"
 import Quotation from "./Quotation";
+import ServicesInformation from "./ServicesInformation";
+import UsageService from "../AppointmentCalendar/UsageService";
 
 export default function Services() {
     const [listServices] = useState(
@@ -16,25 +17,11 @@ export default function Services() {
 
     return (
         <div className="services">
-            <div className="all-service">
-                {
-                    listServices && listServices.length > 0 && listServices.map((item) => {
-                        return (
-                            <>
-                                <div key={item.id} className="service">
-                                    <img src={imageServices} width="90px" height="90px" alt="Ảnh dịch vụ" />
-                                    <div className="info-service">
-                                        <div><span className="title"> {item.nameService} </span></div>
-                                        <div className="content"><span> {item.detailService} </span></div>
-                                        <><button>Sử dụng dịch vụ</button></>
-                                    </div>
-                                </div>
-                            </>
-                        )
-                    })
-                }
-            </div>
+            <ServicesInformation listServices={listServices} />
             <Quotation listServices={listServices} />
+            <div style={{ display: "none" }}>
+                <UsageService listServices={listServices} />
+            </div>
         </div>
     )
 }

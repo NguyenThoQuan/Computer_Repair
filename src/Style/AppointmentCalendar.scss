@@ -1,0 +1,56 @@
+.appointment-calendar {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 15px;
+
+    .appointmen-information {
+        border: 3px solid #EDF5F4;
+        border-radius: 20px;
+        padding: 10px 30px 30px 30px;
+
+        .title-appointmen-information {
+            border-bottom: 3px solid #EDF5F4;
+            padding-bottom: 20px;
+        }
+
+        label {
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            border: none;
+            background-color: #EDF5F4;
+            border-radius: 5px;
+            padding: 5px;
+            width: 95%;
+        }
+
+        select {
+            border: none;
+            background-color: #EDF5F4;
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #EDF5F4;
+            color: black;
+            transition: 0.5s;
+        }
+    }
+}
