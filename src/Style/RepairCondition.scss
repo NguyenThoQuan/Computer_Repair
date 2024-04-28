@@ -1,0 +1,57 @@
+.repair-condition {
+    display: flex;
+    position: relative;
+
+    .status {
+        margin: 20px;
+        padding: 0px 30px 15px 30px;
+        border: 3px solid #EDF5F4;
+        border-radius: 20px;
+
+        h2 {
+            border-bottom: 3px solid #EDF5F4;
+            padding-bottom: 15px;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        input {
+            border: none;
+            border-radius: 5px;
+            background-color: #EDF5F4;
+            padding: 5px;
+            width: 95%;
+        }
+
+        .progress {
+            border: none;
+            border-radius: 20px;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            width: 99%;
+            cursor: pointer;
+        }
+
+        .progress:hover {
+            background-color: #EDF5F4;
+            color: black;
+            transition: 0.5s ease-in-out;
+        }
+
+        .not-progress {
+            border: 3px solid #EDF5F4;
+            border-radius: 20px;
+            background-color: white;
+            color: #EDF5F4;
+            font-weight: bold;
+            padding: 10px;
+            width: 99%;
+            pointer-events: none;
+        }
+    }
+}

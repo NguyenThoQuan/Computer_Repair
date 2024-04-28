@@ -2,6 +2,7 @@ import Nav from './Components/Nav/Nav';
 import Menu from './Components/Menu/Menu';
 import Services from './Components/Services/Services';
 import AppointmentCalendar from './Components/AppointmentCalendar/AppointmentCalendar';
+import RepairCondition from './Components/RepairCondition/RepairCondition';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import "./Style/Body.scss"
@@ -35,7 +36,7 @@ function App() {
             <Route path="/" element={<Services />} />
             <Route path="/datlichhen" element={<AppointmentCalendar />} />
             <Route path="/tracuulichhen" element />
-            <Route path="/tinhtrangsuachua" element />
+            <Route path="/tinhtrangsuachua" element={<RepairCondition />} />
             <Route path="/thanhtoan" element />
           </Routes>
         </div>
