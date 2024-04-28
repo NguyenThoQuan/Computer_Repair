@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.search {
+  position: absolute;
+  right: 65px;
+  margin-top: -615px;
+  padding: 2px 2px 2px 20px;
+  border: 3px solid #EDF5F4;
+  border-radius: 25px;
+  height: 35px;
+  z-index: 3;
+}
+
+.icon-search {
+  position: absolute;
+  margin-top: 9px;
+}
+
+.search input {
+  border: none;
+  width: 300px;
+  margin-left: 30px;
+}
+
+.search input::placeholder {
+  color: #d0d0d0;
+}
+
+.search button {
+  border: none;
+  border-radius: 25px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+}

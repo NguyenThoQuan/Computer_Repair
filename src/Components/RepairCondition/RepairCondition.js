@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { createPortal } from "react-dom";
 import Status from "./Status";
 import InputSearch from "./Search";
 import "../../Style/RepairCondition.scss";
@@ -13,9 +12,7 @@ export default function RepairCondition() {
     return (
         <div className="repair-condition">
             <Status listStatus={listStatus} />
-            {createPortal(
-                <InputSearch />, document.body
-            )}
+            <InputSearch />
         </div>
     )
 }
