@@ -3,6 +3,7 @@ import Menu from './Components/Menu/Menu';
 import Services from './Components/Services/Services';
 import AppointmentCalendar from './Components/AppointmentCalendar/AppointmentCalendar';
 import RepairCondition from './Components/RepairCondition/RepairCondition';
+import Payment from './Components/Payment/Payment';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import "./Style/Body.scss"
@@ -38,7 +39,7 @@ function App() {
             <Route path="/datlichhen" element={<AppointmentCalendar />} />
             <Route path="/tracuulichhen" element={<CalendarSearch />} />
             <Route path="/tinhtrangsuachua" element={<RepairCondition />} />
-            <Route path="/thanhtoan" element />
+            <Route path="/thanhtoan" element={<Payment />} />
           </Routes>
         </div>
       </div>
