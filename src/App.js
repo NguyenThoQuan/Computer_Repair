@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import "./Style/Body.scss"
 import 'react-toastify/dist/ReactToastify.css';
+import CalendarSearch from './Components/CalendarSearch/CalendarSearch';
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Services />} />
             <Route path="/datlichhen" element={<AppointmentCalendar />} />
-            <Route path="/tracuulichhen" element />
+            <Route path="/tracuulichhen" element={<CalendarSearch />} />
             <Route path="/tinhtrangsuachua" element={<RepairCondition />} />
             <Route path="/thanhtoan" element />
           </Routes>
