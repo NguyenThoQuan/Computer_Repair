@@ -14,7 +14,7 @@ if (!searchContainer) {
 export default function InputSearch() {
     return createPortal(
         <div className="search">
-            <Search color="#d0d0d0" className="icon-search" />
+            <Search color="grey" className="icon-search" />
             <input type="text" placeholder="Nhập vào số điện thoại ..." />
             <button>Tìm kiếm</button>
         </div>, searchContainer

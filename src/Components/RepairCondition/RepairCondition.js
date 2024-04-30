@@ -5,8 +5,8 @@ import "../../Style/RepairCondition.scss";
 
 export default function RepairCondition() {
     const [listStatus] = useState([
-        { id: "1", nameService: "Dịch vụ 1", describe: "Hỏng ...", progress: "Đang sửa chữa", quote: "" },
-        { id: "2", nameService: "Dịch vụ 2", describe: "Hỏng ...", progress: "Hoàn tất sửa chữa", quote: "1.200.000 VND" }
+        { id: "1", service: "Dịch vụ 1", phone: "0967724934", describe: "Hỏng ...", progress: "Đang sửa chữa", quote: "" },
+        { id: "2", service: "Dịch vụ 2", phone: "0934480992", describe: "Hỏng ...", progress: "Hoàn tất sửa chữa", quote: "1.200.000 VND" }
     ])
 
     return (

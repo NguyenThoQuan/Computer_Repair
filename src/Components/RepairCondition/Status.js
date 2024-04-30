@@ -13,7 +13,7 @@ export default function Status(props) {
                             <label htmlFor="id">Mã sửa chữa</label><br />
                             <input type="text" value={item.id} readOnly /><br /><br />
                             <label htmlFor="dichVuSuDung">Dịch vụ sử dụng</label><br />
-                            <input type="text" value={item.nameService} readOnly /><br /><br />
+                            <input type="text" value={item.service} readOnly /><br /><br />
                             <label htmlFor="moTa">Mô tả</label><br />
                             <input type="text" value={item.describe} readOnly /><br /><br />
                             <label htmlFor="tienDo">Tiến độ</label><br />
