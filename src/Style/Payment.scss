@@ -27,26 +27,33 @@
 
     .handle-pay {
         padding: 0px 30px 20px;
+        display: flex;
+        justify-content: space-around;
 
-        .cash {
+        .cash,
+        .bank-transfer {
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+
             h2 {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding-bottom: 15px;
+                padding: 15px 0px;
                 border-bottom: 3px solid #EDF5F4;
             }
 
             div {
                 display: flex;
-                margin-bottom: 10px;
+                margin-bottom: 5px;
 
                 div {
                     padding: 10px;
                     border-radius: 10px;
                     background-color: #EDF5F4;
                     font-weight: bold;
-                    width: 300px;
+                    width: 425px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -69,8 +76,8 @@
                 }
             }
 
-            .button {
-                margin-top: 80px;
+            .button-cash {
+                margin-top: 110px;
 
                 button {
                     width: 100%;
@@ -87,6 +94,85 @@
                 button:hover {
                     color: black;
                     background-color: #EDF5F4;
+                    transition: 0.5s ease-in-out;
+                }
+            }
+
+            .button-bank-transfer {
+                margin-top: 15px;
+
+                button {
+                    width: 100%;
+                    border: none;
+                    border-radius: 20px;
+                    padding: 10px;
+                    font-weight: bold;
+                    background-color: black;
+                    color: white;
+                    font-size: 18px;
+                    cursor: pointer;
+                }
+
+                button:hover {
+                    color: black;
+                    background-color: #EDF5F4;
+                    transition: 0.5s ease-in-out;
+                }
+            }
+        }
+
+        img {
+            margin: 25px 0px 0px 25px;
+            width: 18%;
+            height: 90%;
+        }
+
+        .bill {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 12px;
+
+            form {
+                border: 3px solid #EDF5F4;
+                border-radius: 20px;
+                padding: 0px 30px 20px 30px;
+
+                h2 {
+                    padding-bottom: 15px;
+                    border-bottom: 3px solid #EDF5F4;
+                }
+
+                label {
+                    font-weight: bold;
+                    font-size: 12px;
+                }
+
+                input {
+                    border: none;
+                    background-color: #EDF5F4;
+                    width: 96%;
+                    padding: 5px;
+                    margin-bottom: 10px;
+                    border-radius: 5px;
+                }
+
+                button {
+                    width: 100%;
+                    border: none;
+                    border-radius: 20px;
+                    padding: 10px;
+                    margin-top: 10px;
+                    font-weight: bold;
+                    font-size: 18px;
+                    cursor: pointer;
+                    background-color: black;
+                    color: white;
+                }
+
+                button:hover {
+                    background-color: #EDF5F4;
+                    color: black;
                     transition: 0.5s ease-in-out;
                 }
             }
