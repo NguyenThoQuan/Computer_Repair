@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Bill from "./Bill";
 import { toast } from "react-toastify";
 
@@ -9,6 +9,7 @@ export default function Cash(props) {
     const [selectedQuote, setSelectedQuote] = useState("");
     const [selectedService, setSelectedService] = useState("");
     const [paymentAmount, setPaymentAmount] = useState("");
+    const [id, setId] = useState('');
 
     const handlePhoneNumberChange = (event) => {
         const { value } = event.target;
@@ -50,6 +51,21 @@ export default function Cash(props) {
         }
     }
 
+    useEffect(() => {
+        generateRandomId();
+    }, []);
+
+    const generateRandomId = () => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        const charactersLength = characters.length;
+        const length = 10;
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        setId(result);
+    };
+
     return (
         <>
             <div className="cash">
@@ -86,6 +102,7 @@ export default function Cash(props) {
                 </form>
             </div>
             <Bill
+                id={id}
                 phoneNumber={phoneNumber}
                 selectedService={selectedService}
                 selectedQuote={selectedQuote}

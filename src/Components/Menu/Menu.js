@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import '../../Style/Menu.scss'
 
-export default function Menu() {
+export default function Menu({ setSelectedNavLink }) {
     const [className, setClassName] = useState(
         {
             className1: "border1",
@@ -17,30 +17,40 @@ export default function Menu() {
         setClassName({
             className1: "border1"
         })
+
+        setSelectedNavLink("Các dịch vụ");
     }
 
     const handleNavLinkDLH = () => {
         setClassName({
             className2: "border2"
         })
+
+        setSelectedNavLink("Đặt lịch hẹn");
     }
 
     const handleNavLinkTCLH = () => {
         setClassName({
             className3: "border3"
         })
+
+        setSelectedNavLink("Tra cứu lịch hẹn");
     }
 
     const handleNavLinkTTSC = () => {
         setClassName({
             className4: "border4"
         })
+
+        setSelectedNavLink("Tình trạng sửa chữa");
     }
 
     const handleNavLinkTT = () => {
         setClassName({
             className5: "border5"
         })
+
+        setSelectedNavLink("Thanh toán");
     }
 
     return (

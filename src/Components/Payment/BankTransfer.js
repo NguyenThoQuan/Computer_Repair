@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Bill from "./Bill"
 import { fetchBank } from "../../Services/BankService";
+import { toast } from "react-toastify";
 import QR from "../../Images/QR.png"
 
 export default function BankTransfer(props) {
@@ -9,6 +10,9 @@ export default function BankTransfer(props) {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [foundCustomer, setFoundCustomer] = useState([]);
     const [selectedQuote, setSelectedQuote] = useState("");
+    const [selectedService, setSelectedService] = useState("");
+    const [paymentAmount, setPaymentAmount] = useState("");
+    const [id, setId] = useState('');
 
     useEffect(() => {
         getBank();
@@ -35,12 +39,45 @@ export default function BankTransfer(props) {
 
     const handleServiceSelect = (event) => {
         const selectedService = event.target.value;
+        setSelectedService(selectedService)
         const selectedCustomer = foundCustomer.find((item) => item.service === selectedService);
         if (selectedCustomer) {
             setSelectedQuote(selectedCustomer.quote);
         } else {
             setSelectedQuote("");
         }
+    };
+
+    const handlePaymentAmountChange = (event) => {
+        const { value } = event.target;
+        setPaymentAmount(value);
+    }
+
+    const handleOnClick = (event) => {
+        event.preventDefault();
+        if (phoneNumber === "" || selectedService === "" || paymentAmount === "") {
+            toast.warning("Không được bỏ trống thông tin !!!")
+            return
+        } else if (selectedQuote === "") {
+            toast.info("Bạn chưa thể thanh toán cho dịch vụ này !!!")
+        } else {
+            toast.success("Thanh toán thành công !!!")
+        }
+    }
+
+    useEffect(() => {
+        generateRandomId();
+    }, []);
+
+    const generateRandomId = () => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        const charactersLength = characters.length;
+        const length = 10;
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        setId(result);
     };
 
     return (
@@ -90,15 +127,21 @@ export default function BankTransfer(props) {
                     </div>
                     <div>
                         <div>Số tiền thanh toán</div>
-                        <input type="text" />
+                        <input type="text" value={paymentAmount} onChange={handlePaymentAmountChange} />
                     </div>
                     <div className="button-bank-transfer">
-                        <button>Thanh toán</button>
+                        <button onClick={(event) => handleOnClick(event)}>Thanh toán</button>
                     </div>
                 </form>
             </div>
             <img src={QR} alt="QR" />
-            <Bill />
+            <Bill
+                id={id}
+                phoneNumber={phoneNumber}
+                selectedService={selectedService}
+                selectedQuote={selectedQuote}
+                paymentAmount={paymentAmount}
+            />
         </>
     )
 }

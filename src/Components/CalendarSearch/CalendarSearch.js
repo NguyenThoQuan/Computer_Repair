@@ -9,10 +9,17 @@ export default function CalendarSearch() {
         { id: "2", fullName: "Nguyen Viet Hoang", email: "nguyenviethoang@gmail.com", phone: "0934480992", time: "9:00 AM - 10:00 AM", service: "Dịch vụ 3", describe: "Hỏng ..." }
     ])
 
+    const [searchPhone, setSearchPhone] = useState("");
+
+    const handleSearch = () => {
+        const filteredCalendar = calendar.filter(item => item.phone.includes(searchPhone));
+        return filteredCalendar;
+    };
+
     return (
         <div className="calendar-search">
-            <Calendar calendar={calendar} />
-            <InputSearch />
+            <Calendar calendar={searchPhone ? handleSearch() : calendar} />
+            <InputSearch setSearchPhone={setSearchPhone} />
         </div>
     )
 }

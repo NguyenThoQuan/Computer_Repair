@@ -11,12 +11,16 @@ if (!searchContainer) {
     document.body.appendChild(searchContainerDiv);
     searchContainer = searchContainerDiv;
 }
-export default function InputSearch() {
+export default function InputSearch({ setSearchPhone }) {
+    const handleInputChange = (event) => {
+        setSearchPhone(event.target.value);
+    };
+
     return createPortal(
         <div className="search">
             <Search color="grey" className="icon-search" />
-            <input type="text" placeholder="Nhập vào số điện thoại ..." />
-            <button>Tìm kiếm</button>
+            <input type="text" placeholder="Nhập vào số điện thoại ..." onChange={handleInputChange} />
+            <button onClick={() => setSearchPhone("")}>Tìm kiếm</button>
         </div>, searchContainer
     )
 }

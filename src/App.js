@@ -9,14 +9,17 @@ import { ToastContainer } from 'react-toastify';
 import "./Style/Body.scss"
 import 'react-toastify/dist/ReactToastify.css';
 import CalendarSearch from './Components/CalendarSearch/CalendarSearch';
+import { useState } from 'react';
 
 function App() {
+  const [selectedNavLink, setSelectedNavLink] = useState("Các dịch vụ");
+
   return (
     <BrowserRouter>
       <div className="App">
         <header className="App-header">
           <Nav />
-          <Menu />
+          <Menu setSelectedNavLink={setSelectedNavLink} />
         </header>
         <ToastContainer
           position="top-right"
@@ -32,7 +35,7 @@ function App() {
       </div>
 
       <div className="body">
-        <div className="title-body">Phần này chưa biết xử lý như nào duma !!!</div>
+        <div className="title-body">{selectedNavLink}</div>
         <div className="content-body">
           <Routes>
             <Route path="/" element={<Services />} />
