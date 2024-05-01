@@ -3,11 +3,13 @@ import React from "react";
 export default function Status(props) {
     const { listStatus } = props
 
+    const hasResults = listStatus.length > 0;
+
     return (
         <>
             {
-                listStatus && listStatus.map((item) => {
-                    return (
+                hasResults ? (
+                    listStatus.map((item) => (
                         <form key={item.id} className="status">
                             <h2>Tình trạng sửa chữa</h2>
                             <label htmlFor="id">Mã sửa chữa</label><br />
@@ -22,8 +24,10 @@ export default function Status(props) {
                             <input type="text" value={item.quote} readOnly /><br /><br />
                             <button className={item.progress === "Đang sửa chữa" ? "not-progress" : "progress"}>Thanh toán</button>
                         </form>
-                    )
-                })
+                    ))
+                )
+                    :
+                    <h1 className="notification">Không tìm thấy kết quả</h1>
             }
         </>
     )

@@ -9,10 +9,17 @@ export default function RepairCondition() {
         { id: "2", service: "Dịch vụ 2", phone: "0934480992", describe: "Hỏng ...", progress: "Hoàn tất sửa chữa", quote: "1.200.000 VND" }
     ])
 
+    const [searchPhone, setSearchPhone] = useState("");
+
+    const handleSearch = () => {
+        const filteredStatus = listStatus.filter(item => item.phone.includes(searchPhone));
+        return filteredStatus;
+    };
+
     return (
         <div className="repair-condition">
-            <Status listStatus={listStatus} />
-            <InputSearch />
+            <Status listStatus={searchPhone ? handleSearch() : listStatus} />
+            <InputSearch setSearchPhone={setSearchPhone} />
         </div>
     )
 }
