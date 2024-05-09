@@ -22,11 +22,11 @@ export default function Nav() {
     return (
         <nav>
             <div><img src={logo} alt="logo" /></div>
-            <div className={addClassName === 0 ? "select" : ""} onClick={() => handleNavClick(0)}><NavLink to='/' className="navLink"><HouseGearFill className="icon" />Trang chủ</NavLink></div>
-            <div className={addClassName === 1 ? "select" : ""} onClick={() => handleNavClick(1)}><NavLink to='/serviceManagement' className="navLink"><Tools className="icon" />Quản lý dịch vụ</NavLink></div>
-            <div className={addClassName === 2 ? "select" : ""} onClick={() => handleNavClick(2)}><NavLink to='/calendarManagement' className="navLink"><Calendar className="icon" />Quản lý lịch hẹn</NavLink></div>
-            <div className={addClassName === 3 ? "select" : ""} onClick={() => handleNavClick(3)}><NavLink to='/statusUpdate' className="navLink"><CardChecklist className="icon" />Cập nhật tình trạng</NavLink></div>
-            <div className={addClassName === 4 ? "select" : ""} onClick={() => handleNavClick(4)}><NavLink to='/transactionManagement' className="navLink"><Coin className="icon" />Quản lý giao dịch</NavLink></div>
+            <div className={addClassName === 0 ? "select" : ""}><NavLink to='/' className="navLink" onClick={() => handleNavClick(0)}><HouseGearFill className="icon" />Trang chủ</NavLink></div>
+            <div className={addClassName === 1 ? "select" : ""}><NavLink to='/serviceManagement' className="navLink" onClick={() => handleNavClick(1)}><Tools className="icon" />Quản lý dịch vụ</NavLink></div>
+            <div className={addClassName === 2 ? "select" : ""}><NavLink to='/calendarManagement' className="navLink" onClick={() => handleNavClick(2)}><Calendar className="icon" />Quản lý lịch hẹn</NavLink></div>
+            <div className={addClassName === 3 ? "select" : ""}><NavLink to='/statusUpdate' className="navLink" onClick={() => handleNavClick(3)}><CardChecklist className="icon" />Cập nhật tình trạng</NavLink></div>
+            <div className={addClassName === 4 ? "select" : ""}><NavLink to='/transactionManagement' className="navLink" onClick={() => handleNavClick(4)}><Coin className="icon" />Quản lý giao dịch</NavLink></div>
         </nav>
     )
 }

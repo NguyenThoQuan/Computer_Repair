@@ -4,3 +4,8 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+
+.allApp {
+    display: flex;
+    justify-content: space-between;
+}
