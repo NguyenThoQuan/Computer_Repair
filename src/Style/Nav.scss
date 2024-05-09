@@ -1,0 +1,65 @@
+nav {
+    margin: 5px;
+    padding: 15px 20px;
+    border-radius: 30px;
+    color: #FFF;
+    box-shadow: 5px 10px #888888;
+    overflow: auto;
+
+    div:nth-child(1) {
+        padding: 23px 18px;
+    }
+
+    div {
+        max-width: 100%;
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 5px;
+        font-size: 18px;
+
+        .navLink {
+            color: gray;
+            font-weight: 700;
+
+            .icon {
+                margin-right: 10px;
+                transform: translateY(2px);
+                color: gray;
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .select {
+        position: relative;
+        border-radius: 5px;
+        background-color: #E7E7FF;
+        transition: 0.42s;
+
+        .navLink {
+            color: #696CFF;
+            transition: 0.42s;
+
+            .icon {
+                color: #696CFF;
+                transition: 0.42s;
+            }
+        }
+    }
+
+    .select::before {
+        position: absolute;
+        content: "";
+        background-color: #696CFF;
+        width: 5px;
+        height: 100%;
+        border-radius: 8px 0px 0px 8px;
+        right: 0;
+        top: 0;
+        margin-right: -20px;
+        transition: 0.42s;
+    }
+}
