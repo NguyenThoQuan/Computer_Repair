@@ -35,6 +35,10 @@ code {
   margin-right: 10px;
 }
 
+.search input:focus {
+  outline: none;
+}
+
 .search input::placeholder {
   color: #d0d0d0;
 }

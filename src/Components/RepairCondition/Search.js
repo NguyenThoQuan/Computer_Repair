@@ -11,6 +11,7 @@ if (!searchContainer) {
     document.body.appendChild(searchContainerDiv);
     searchContainer = searchContainerDiv;
 }
+
 export default function InputSearch({ setSearchPhone }) {
     const handleInputChange = (event) => {
         setSearchPhone(event.target.value);
