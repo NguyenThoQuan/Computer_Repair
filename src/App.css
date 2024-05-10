@@ -8,4 +8,16 @@
 .allApp {
     display: flex;
     justify-content: space-between;
+    background-color: #F5F5F9;
+}
+
+.body {
+    max-width: 100%;
+    width: 100%;
+    margin: 5px 10px;
+    padding: 15px;
+}
+
+input:focus {
+    outline: none;
 }

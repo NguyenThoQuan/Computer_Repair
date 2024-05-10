@@ -1,0 +1,39 @@
+.listService {
+    margin-top: 30px;
+
+    h1 {
+        text-align: center;
+        background-color: #FFF;
+        border-radius: 20px;
+    }
+
+    .service {
+        margin-top: 10px;
+        background-color: #FFF;
+        border-radius: 20px;
+        padding: 15px;
+
+        div {
+            display: flex;
+            justify-content: space-around;
+
+            button {
+                padding: 8px;
+                max-width: 100%;
+                width: 45%;
+                border: none;
+                border-radius: 20px;
+                font-weight: bold;
+                border: 3px solid #E7E7FF;
+                background-color: #FFF;
+                color: #696CFF;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #E7E7FF;
+                transition: 0.42s;
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import './App.css';
 import Nav from './Components/Nav/Nav';
 import Home from './Components/Home/Home';
+import Service from './Components/Service/Service';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -13,15 +14,15 @@ function App() {
           </header>
         </div>
 
-        <body>
+        <div className='body'>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/serviceManagement' element />
+            <Route path='/serviceManagement' element={<Service />} />
             <Route path='/calendarManagement' element />
             <Route path='/statusUpdate' element />
             <Route path='/transactionManagement' element />
           </Routes>
-        </body>
+        </div>
       </div>
     </BrowserRouter>
   );

@@ -1,9 +1,11 @@
 import React from "react";
+import InputSearch from "../Search/InputSearch";
+import "../../Style/Home.scss";
 
 export default function Home() {
     return (
-        <div>
-            <p>Chưa biết thiết kê Home :D</p>
-        </div>
+        <>
+            <InputSearch />
+        </>
     )
 }
