@@ -1,0 +1,44 @@
+h1 {
+    margin-top: 30px;
+    text-align: center;
+    background-color: #FFF;
+    border-radius: 20px;
+    padding: 5px 0px;
+}
+
+.listCalendar {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+
+    .detailCalendar {
+        margin-top: 10px;
+        background-color: #FFF;
+        border-radius: 20px;
+        padding: 15px;
+
+        div {
+            display: flex;
+            justify-content: space-around;
+
+            button {
+                padding: 8px;
+                max-width: 100%;
+                width: 45%;
+                border: none;
+                border-radius: 20px;
+                font-weight: bold;
+                border: 3px solid #E7E7FF;
+                background-color: #FFF;
+                color: #696CFF;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #E7E7FF;
+                transition: 0.42s;
+            }
+        }
+    }
+}

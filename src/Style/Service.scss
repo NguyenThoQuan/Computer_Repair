@@ -1,10 +1,12 @@
 .listService {
     margin-top: 30px;
+    overflow: auto;
 
     h1 {
         text-align: center;
         background-color: #FFF;
         border-radius: 20px;
+        padding: 5px 0px;
     }
 
     .service {
@@ -35,5 +37,37 @@
                 transition: 0.42s;
             }
         }
+    }
+
+    .create {
+        position: fixed;
+        background-color: #E7E7FF;
+        padding: 15px 18px;
+        border-radius: 50%;
+        margin-top: -80px;
+        margin-left: 1150px;
+        cursor: pointer;
+
+        .iconCreate {
+            color: #696CFF;
+            font-size: 20px;
+            transform: translateY(2px);
+        }
+
+        .tooltip {
+            position: absolute;
+            display: none;
+        }
+    }
+
+    .create:hover .tooltip {
+        display: block;
+        width: max-content;
+        color: #696CFF;
+        background-color: #E7E7FF;
+        font-weight: bold;
+        padding: 5px;
+        border-radius: 10px;
+        margin: -80px 0px 0px -50px;
     }
 }
