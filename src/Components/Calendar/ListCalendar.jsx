@@ -11,14 +11,39 @@ export default function ListCalendar(props) {
                     calendar && calendar.map((item) => {
                         return (
                             <div className="detailCalendar" key={item.id}>
-                                <h2>Thông tin lịch hẹn</h2><br></br>
-                                <span>Mã lịch hẹn: {item.id}</span><br></br>
-                                <span>Họ và tên: {item.fullName}</span><br></br>
-                                <span>Email: {item.email}</span><br></br>
-                                <span>SĐT: {item.phone}</span><br></br>
-                                <span>Thời gian lịch hẹn: {item.time}</span><br></br>
-                                <span>Dịch vụ sử dụng: {item.service}</span><br></br>
-                                <span>Mô tả: {item.describe}</span><br /><br />
+                                <h2>Thông tin lịch hẹn</h2>
+                                <div className="tableCalendar">
+                                    <table>
+                                        <tr>
+                                            <td>Mã lịch hẹn</td>
+                                            <td>{item.id}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Họ và tên</td>
+                                            <td>{item.fullName}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>{item.email}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SĐT</td>
+                                            <td>{item.phone}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thời gian lịch hẹn</td>
+                                            <td>{item.time}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dịch vụ sử dụng</td>
+                                            <td>{item.service}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mô tả</td>
+                                            <td>{item.describe}</td>
+                                        </tr>
+                                    </table>
+                                </div>
                                 <div>
                                     <button>Chỉnh sửa</button>
                                     <button>Xóa</button>

@@ -1,0 +1,34 @@
+.payment {
+    h1 {
+        margin-top: 5px;
+    }
+
+    .listPayment {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 10px;
+
+        .detailPayment {
+            padding: 15px;
+            text-align: center;
+            background-color: #FFF;
+            border-radius: 20px;
+
+            .tablePayment {
+                margin-top: 15px;
+                width: 100%;
+
+                table {
+                    width: 100%;
+                }
+
+                tr,
+                td {
+                    padding: 2px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
