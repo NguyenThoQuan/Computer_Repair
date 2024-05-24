@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import "../../Style/Cancel.scss";
 
 export default function Cancel({ onClose, appointment }) {
@@ -14,6 +15,7 @@ export default function Cancel({ onClose, appointment }) {
 
     const handleSave = (event) => {
         event.preventDefault();
+        toast.success("Chỉnh sửa lịch hẹn thành công !!!");
         onClose();
     }
 
