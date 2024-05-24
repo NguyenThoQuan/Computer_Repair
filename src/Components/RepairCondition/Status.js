@@ -27,7 +27,7 @@ export default function Status(props) {
                     ))
                 )
                     :
-                    <h1 className="notification">Không tìm thấy kết quả</h1>
+                    <h1 className="notification">Không có tình trạng sửa chữa nào !!!</h1>
             }
         </>
     )

@@ -18,7 +18,7 @@ export default function CalendarSearch() {
 
     return (
         <div className="calendar-search">
-            <Calendar calendar={searchPhone ? handleSearch() : calendar} />
+            <Calendar calendar={searchPhone ? handleSearch() : calendar} set />
             <InputSearch setSearchPhone={setSearchPhone} />
         </div>
     )

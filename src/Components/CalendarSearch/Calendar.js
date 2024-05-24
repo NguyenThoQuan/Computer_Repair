@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import Cancel from "./Cancel";
+import { createPortal } from "react-dom";
 
-export default function Calendar(props) {
-    const { calendar } = props;
+export default function Calendar({ calendar }) {
+    const [showCancel, setShowCancel] = useState(false);
+    const [selectedAppointment, setSelectedAppointment] = useState(null);
 
     const hasResults = calendar.length > 0;
+
+    const handleShowCancel = (event, appointment) => {
+        event.preventDefault();
+        setSelectedAppointment(appointment);
+        setShowCancel(true);
+    }
 
     return (
         <>
             {hasResults ? (
-                calendar.map((item) => (
+                calendar && calendar.map((item) => (
                     <form key={item.id}>
                         <div>
                             <h2>Chi tiết lịch hẹn</h2>
@@ -28,14 +37,20 @@ export default function Calendar(props) {
                             </div>
                         </div>
                         <div className="button">
-                            <button>Chỉnh sửa</button>
+                            <button onClick={(event) => handleShowCancel(event, item)}>Chỉnh sửa</button>
                             <button>Hủy</button>
                         </div>
                     </form>
                 ))
             ) : (
-                <h1 className="notification">Không tìm thấy lịch hẹn</h1>
+                <h1 className="notification">Không có lịch hẹn nào !!!</h1>
             )}
+
+            {
+                showCancel && createPortal(
+                    <Cancel onClose={() => setShowCancel(false)} appointment={selectedAppointment} />, document.body
+                )
+            }
         </>
     )
 }
