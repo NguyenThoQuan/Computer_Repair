@@ -21,6 +21,7 @@
             .icon {
                 width: 20%;
                 height: auto;
+                transition: transform 0.42s;
             }
         }
 
@@ -89,6 +90,5 @@
 }
 
 .updateStatus:hover .icon {
-    scale: 1.1;
-    transition: all 0.42s ease-in-out;
+    transform: scale(1.1);
 }

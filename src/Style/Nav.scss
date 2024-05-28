@@ -10,7 +10,7 @@ nav {
         padding: 23px 18px;
     }
 
-    div {
+    .option {
         max-width: 100%;
         width: 100%;
         padding: 12px;
@@ -61,5 +61,26 @@ nav {
         top: 0;
         margin-right: -20px;
         transition: 0.42s;
+    }
+
+    .logout {
+        max-width: 100%;
+        width: 100%;
+        padding: 12px;
+        margin-top: 350px;
+        font-size: 16px;
+        background-color: #E7E7FF;
+        border-radius: 10px;
+
+        .navLink {
+            color: #696CFF;
+            font-weight: 700;
+
+            .icon {
+                margin-right: 10px;
+                transform: translateY(2px);
+                color: #696CFF;
+            }
+        }
     }
 }

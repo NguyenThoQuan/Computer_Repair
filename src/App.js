@@ -5,6 +5,8 @@ import Service from './Components/Service/Service';
 import Calendar from './Components/Calendar/Calendar';
 import Payment from './Components/Payment/Payment';
 import Status from './Components/Status/Status';
+import Account from './Components/Login&Signup/Account';
+import PrivateRoutes from './Utils/PrivateRoute';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -18,13 +20,18 @@ function App() {
         </div>
 
         <div className='body'>
+
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/serviceManagement' element={<Service />} />
-            <Route path='/calendarManagement' element={<Calendar />} />
-            <Route path='/statusUpdate' element={<Status />} />
-            <Route path='/transactionManagement' element={<Payment />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path='/' element={<Home />} />
+              <Route path='/serviceManagement' element={<Service />} />
+              <Route path='/calendarManagement' element={<Calendar />} />
+              <Route path='/statusUpdate' element={<Status />} />
+              <Route path='/transactionManagement' element={<Payment />} />
+            </Route>
+            <Route path='/login' element={<Account />} />
           </Routes>
+
         </div>
       </div>
     </BrowserRouter>
