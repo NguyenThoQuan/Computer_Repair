@@ -12,6 +12,15 @@ export default function Nav() {
         localStorage.setItem('addClassName', index);
     }
 
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+    }
+
+    const handleNavClickAndLogout = (index) => {
+        handleNavClick(index);
+        handleLogout();
+    };
+
     useEffect(() => {
         const savedIndex = localStorage.getItem('addClassName');
         if (savedIndex !== null) {
@@ -27,7 +36,7 @@ export default function Nav() {
             <div className={addClassName === 2 ? "select option" : "option"}><NavLink to='/calendarManagement' className="navLink" onClick={() => handleNavClick(2)}><Calendar className="icon" />Quản lý lịch hẹn</NavLink></div>
             <div className={addClassName === 3 ? "select option" : "option"}><NavLink to='/statusUpdate' className="navLink" onClick={() => handleNavClick(3)}><CardChecklist className="icon" />Cập nhật tình trạng</NavLink></div>
             <div className={addClassName === 4 ? "select option" : "option"}><NavLink to='/transactionManagement' className="navLink" onClick={() => handleNavClick(4)}><Coin className="icon" />Quản lý giao dịch</NavLink></div>
-            <div className="logout"><NavLink to='/login' className="navLink" onClick={() => handleNavClick(5)}><BoxArrowLeft className="icon" />Đăng xuất</NavLink></div>
+            <div className="logout"><NavLink to='/login' className="navLink" onClick={() => handleNavClickAndLogout(5)} ><BoxArrowLeft className="icon" />Đăng xuất</NavLink></div>
         </nav>
     )
 }
