@@ -18,7 +18,7 @@ export default function Quotation(props) {
                             <tr key={item._id}>
                                 <td>{index + 1}</td>
                                 <td>{item.serviceName}</td>
-                                <td>{item.expectedPrice}</td>
+                                <td>{item.expectedPrice} VND</td>
                             </tr>
                         )
                     })
