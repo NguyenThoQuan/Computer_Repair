@@ -11,16 +11,14 @@ export default function Quotation(props) {
                     <th>STT</th>
                     <th>Tên dịch vụ</th>
                     <th>Báo giá dịch vụ</th>
-                    <th>Bảo hành</th>
                 </tr>
                 {
-                    listServices.map((item) => {
+                    listServices.map((item, index) => {
                         return (
-                            <tr key={item.id}>
-                                <td>{item.id}</td>
-                                <td>{item.nameService}</td>
-                                <td>{item.quotation}</td>
-                                <td>{item.guarantee}</td>
+                            <tr key={item._id}>
+                                <td>{index + 1}</td>
+                                <td>{item.serviceName}</td>
+                                <td>{item.expectedPrice}</td>
                             </tr>
                         )
                     })

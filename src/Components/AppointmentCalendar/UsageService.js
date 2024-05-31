@@ -24,7 +24,7 @@ export default function UsageService(props) {
                     {
                         listServices && listServices.map((item) => {
                             return (
-                                <option>{item.nameService}</option>
+                                <option>{item.serviceName}</option>
                             )
                         })
                     }
