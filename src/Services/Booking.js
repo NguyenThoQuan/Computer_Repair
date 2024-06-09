@@ -16,8 +16,16 @@ const getBookingDetails = () => {
     return axios.get("/ticketdetails/");
 }
 
-const postTicket = (customersId, time) => {
-    return axios.post("/tickets/", { customersId, time })
+const getTicket = () => {
+    return axios.get("/tickets/");
 }
 
-export { getCustomers, customers, getServices, getBookingDetails, postTicket };
+const postTicket = (customerId, time) => {
+    return axios.post("/tickets/", { customerId, time })
+}
+
+const postTicketDetails = (ticketId, serviceId) => {
+    return axios.post("/ticketdetails/", { ticketId, serviceId })
+}
+
+export { getCustomers, customers, getServices, getBookingDetails, postTicket, postTicketDetails, getTicket };

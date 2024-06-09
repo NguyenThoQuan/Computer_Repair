@@ -13,7 +13,6 @@ export default function AppointmentCalendar() {
     const handleGetServices = async () => {
         let res = await getServices();
         setListServices(res.data.services);
-        console.log(res)
     }
 
     return (

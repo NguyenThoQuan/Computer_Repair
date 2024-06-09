@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { addDays, format } from 'date-fns';
-import { customers, getCustomers, postTicket } from "../../Services/Booking";
+import { customers, getCustomers, postTicket, postTicketDetails, getTicket } from "../../Services/Booking";
 import { toast } from "react-toastify";
 
 export default function AppointmenInformation({ listServices }) {
@@ -8,10 +8,12 @@ export default function AppointmenInformation({ listServices }) {
     const [onClickButton2, setOnClickButton2] = useState(false);
     const [nameCustomer, setNameCustomer] = useState("");
     const [phoneCustomer, setPhoneCustomer] = useState("");
-    // const [selectService, setSelectService] = useState("");
+    const [selectServiceId, setSelectServiceId] = useState("");
     const [dateTime, setDateTime] = useState("");
+    const [selectedDay, setSelectedDay] = useState("");
+    const [selectedTime, setSelectedTime] = useState("");
     const [listCustomers, setListCustomers] = useState([]);
-    const [lastCustomer, setLastCustomer] = useState(null);
+    const [listTicket, setListTicket] = useState([]);
 
     const handleOnClickButton1 = () => {
         if (nameCustomer === "" || phoneCustomer === "") {
@@ -21,12 +23,16 @@ export default function AppointmenInformation({ listServices }) {
 
         setOnClickButton1(true);
         toast.success("Đã xác nhận thông tin cá nhân !!!");
-        // postCustomers();
+        postCustomers();
     }
 
     const handleOnClickButton2 = () => {
         setOnClickButton2(true);
         handlePostTicket();
+    }
+
+    const handleOnClickButton3 = () => {
+        handlePostTicketDetails();
     }
 
     const getSevenDays = () => {
@@ -40,27 +46,51 @@ export default function AppointmenInformation({ listServices }) {
 
     const sevenDay = getSevenDays();
 
-    const postCustomers = async () => {
-        await customers(nameCustomer, phoneCustomer);
-    }
+    const handleDayChange = (event) => {
+        setSelectedDay(event.target.value);
+        const DT = event.target.value + " " + selectedTime;
+        setDateTime(DT);
+    };
 
-    const handlePostTicket = async () => {
-        await postTicket();
+    const handleTimeChange = (event) => {
+        setSelectedTime(event.target.value);
+        const DT = selectedDay + " " + event.target.value;
+        setDateTime(DT);
+    };
+
+    const handleSelectedServiceId = (event) => {
+        setSelectServiceId(event.target.value);
     }
 
     useEffect(() => {
         handleGetCustomers();
+        handleGetTicket();
     }, []);
 
     const handleGetCustomers = async () => {
         let res = await getCustomers();
         setListCustomers(res.data.customers);
-
-        if (res.data.customers.length > 0) {
-            setLastCustomer(res.data.customers[res.data.customers.length - 1]);
-        }
         console.log(res)
-        console.log(lastCustomer)
+    }
+
+    const postCustomers = async () => {
+        await customers(nameCustomer, phoneCustomer);
+        handleGetCustomers();
+    }
+
+    const handlePostTicket = async () => {
+        await postTicket(listCustomers[listCustomers.length - 1]._id, dateTime);
+        handleGetTicket();
+    }
+
+    const handlePostTicketDetails = async () => {
+        await postTicketDetails(listTicket[listTicket.length - 1]._id, selectServiceId);
+    }
+
+    const handleGetTicket = async () => {
+        let res = await getTicket();
+        setListTicket(res.data.result)
+        console.log(res);
     }
 
     return (
@@ -80,7 +110,8 @@ export default function AppointmenInformation({ listServices }) {
                         <>
                             <form>
                                 <label htmlFor="dateTime">Thời gian lịch hẹn</label>
-                                <select className="day">
+                                <select className="day" value={selectedDay} onChange={handleDayChange}>
+                                    <option value="">Chọn ngày hẹn</option>
                                     {
                                         sevenDay && sevenDay.map((item, index) => {
                                             return (
@@ -89,15 +120,16 @@ export default function AppointmenInformation({ listServices }) {
                                         })
                                     }
                                 </select>
-                                <select className="time">
-                                    <option>7h30</option>
-                                    <option>8h30</option>
-                                    <option>9h30</option>
-                                    <option>10h30</option>
-                                    <option>13h30</option>
-                                    <option>14h30</option>
-                                    <option>15h30</option>
-                                    <option>16h30</option>
+                                <select className="time" value={selectedTime} onChange={handleTimeChange}>
+                                    <option value="">Chọn thời gian hẹn</option>
+                                    <option value="7h30">7h30</option>
+                                    <option value="8h30">8h30</option>
+                                    <option value="9h30">9h30</option>
+                                    <option value="10h30">10h30</option>
+                                    <option value="13h30">13h30</option>
+                                    <option value="14h30">14h30</option>
+                                    <option value="15h30">15h30</option>
+                                    <option value="16h30">16h30</option>
                                 </select>
                             </form>
                             <button onClick={handleOnClickButton2}>Xác nhận thông tin</button>
@@ -110,17 +142,18 @@ export default function AppointmenInformation({ listServices }) {
                         <>
                             <form>
                                 <label htmlFor="selectService">Chọn dịch vụ</label>
-                                <select className="service">
+                                <select className="service" onChange={handleSelectedServiceId}>
+                                    <option value="">Chọn dịch vụ</option>
                                     {
                                         listServices && listServices.map((item) => {
                                             return (
-                                                <option key={item.id} value={item.serviceName}>{item.serviceName}</option>
+                                                <option key={item.id} value={item._id}>{item.serviceName}</option>
                                             )
                                         })
                                     }
                                 </select>
                             </form>
-                            <button>Đặt lịch hẹn</button>
+                            <button onClick={handleOnClickButton3}>Xác nhận thông tin</button>
                         </>
                         :
                         <></>
