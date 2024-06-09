@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import Cash from "./Cash";
 import BankTransfer from "./BankTransfer";
 
-export default function PaymentMethod(props) {
+export default function PaymentMethod({ listTicket }) {
     const [chooseMethod, setChooseMethod] = useState(true)
-    const { listStatus } = props
 
     const handleOnClickCash = (event) => {
         event.preventDefault();
@@ -39,9 +38,9 @@ export default function PaymentMethod(props) {
             <div className="handle-pay">
                 {
                     chooseMethod === true ?
-                        <Cash listStatus={listStatus} />
+                        <Cash listTicket={listTicket} />
                         :
-                        <BankTransfer listStatus={listStatus} />
+                        <BankTransfer listTicket={listTicket} />
                 }
             </div>
         </>

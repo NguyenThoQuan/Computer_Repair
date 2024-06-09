@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import QR from "../../Images/QR.png"
 
 export default function BankTransfer(props) {
+    const [credit] = useState("credit");
     const { listStatus } = props
     const [listBank, setListBank] = useState([])
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -12,7 +13,6 @@ export default function BankTransfer(props) {
     const [selectedQuote, setSelectedQuote] = useState("");
     const [selectedService, setSelectedService] = useState("");
     const [paymentAmount, setPaymentAmount] = useState("");
-    const [id, setId] = useState('');
 
     useEffect(() => {
         getBank();
@@ -64,21 +64,6 @@ export default function BankTransfer(props) {
             toast.success("Thanh toán thành công !!!")
         }
     }
-
-    useEffect(() => {
-        generateRandomId();
-    }, []);
-
-    const generateRandomId = () => {
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        let result = '';
-        const charactersLength = characters.length;
-        const length = 10;
-        for (let i = 0; i < length; i++) {
-            result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }
-        setId(result);
-    };
 
     return (
         <>
@@ -135,13 +120,7 @@ export default function BankTransfer(props) {
                 </form>
             </div>
             <img src={QR} alt="QR" />
-            <Bill
-                id={id}
-                phoneNumber={phoneNumber}
-                selectedService={selectedService}
-                selectedQuote={selectedQuote}
-                paymentAmount={paymentAmount}
-            />
+            <Bill />
         </>
     )
 }

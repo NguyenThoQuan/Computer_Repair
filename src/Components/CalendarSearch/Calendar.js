@@ -22,6 +22,8 @@ export default function Calendar({ calendar }) {
                         <div>
                             <h2>Chi tiết lịch hẹn</h2>
                             <div>
+                                <label htmlFor="maLichHen">Mã lịch hẹn</label><br />
+                                <input type="text" value={item.ticketId._id} readOnly /><br />
                                 <label htmlFor="fullName">Họ và tên</label><br />
                                 <input type="text" value={item.ticketId.customerId.name} readOnly /><br />
                                 <label htmlFor="phone">Số điện thoại</label><br />

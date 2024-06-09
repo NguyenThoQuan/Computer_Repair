@@ -1,8 +1,7 @@
 import React from "react";
 import { toast } from "react-toastify"
 
-export default function Bill(props) {
-    const { id, phoneNumber, selectedService, paymentAmount, selectedQuote } = props;
+export default function Bill() {
 
     const handleOnClick = (event) => {
         event.preventDefault();
@@ -13,16 +12,14 @@ export default function Bill(props) {
         <div className="bill">
             <form>
                 <h2>Thông tin hóa đơn</h2>
-                <label htmlFor="id">Mã hóa đơn</label><br />
-                <input type="text" value={id} readOnly /><br />
-                <label htmlFor="service">Dịch vụ thanh toán</label><br />
-                <input type="text" value={selectedService} readOnly /><br />
+                <label htmlFor="service">Mã hóa đơn</label><br />
+                <input type="text" value readOnly /><br />
+                <label htmlFor="name">Họ tên khách hàng</label><br />
+                <input type="text" value readOnly /><br />
                 <label htmlFor="phone">Số điện thoại khách hàng</label><br />
-                <input type="text" value={phoneNumber} readOnly /><br />
-                <label htmlFor="quote">Số tiền cần thanh toán</label><br />
-                <input type="text" value={selectedQuote} readOnly /><br />
+                <input type="text" value readOnly /><br />
                 <label htmlFor="pay">Số tiền thanh toán</label><br />
-                <input type="text" value={paymentAmount} readOnly /><br />
+                <input type="text" value readOnly /><br />
                 <button onClick={(event) => handleOnClick(event)}>In hóa đơn</button>
             </form>
         </div>
