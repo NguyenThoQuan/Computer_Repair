@@ -19,16 +19,20 @@ export default function Login({ handleLoginOrSign }) {
         }
 
         let res = await login(username, password);
-        console.log(">>> check res: ", res);
-        if (res && res.token) {
-            localStorage.setItem("token", res.token);
+        if (res && res.data.token) {
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("name", res.data.staffName);
+            localStorage.setItem("id", res.data.userId);
             navigate("/")
         } else {
             if (res && res.status === 404) {
                 toast.error(res.data.message);
             }
         }
+
+        console.log(res)
     }
+
 
     return (
         <div className="login">

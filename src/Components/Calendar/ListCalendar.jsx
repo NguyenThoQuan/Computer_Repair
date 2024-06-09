@@ -10,37 +10,29 @@ export default function ListCalendar(props) {
                 {
                     calendar && calendar.map((item) => {
                         return (
-                            <div className="detailCalendar" key={item.id}>
+                            <div className="detailCalendar" key={item._id}>
                                 <h2>Thông tin lịch hẹn</h2>
                                 <div className="tableCalendar">
                                     <table>
                                         <tr>
                                             <td>Mã lịch hẹn</td>
-                                            <td>{item.id}</td>
+                                            <td>{item._id}</td>
                                         </tr>
                                         <tr>
                                             <td>Họ và tên</td>
-                                            <td>{item.fullName}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Email</td>
-                                            <td>{item.email}</td>
+                                            <td>{item.ticketId.customerId.name}</td>
                                         </tr>
                                         <tr>
                                             <td>SĐT</td>
-                                            <td>{item.phone}</td>
+                                            <td>{item.ticketId.customerId.phoneNumber}</td>
                                         </tr>
                                         <tr>
                                             <td>Thời gian lịch hẹn</td>
-                                            <td>{item.time}</td>
+                                            <td>{item.ticketId.time}</td>
                                         </tr>
                                         <tr>
                                             <td>Dịch vụ sử dụng</td>
-                                            <td>{item.service}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mô tả</td>
-                                            <td>{item.describe}</td>
+                                            <td>{item.serviceId.serviceName}</td>
                                         </tr>
                                     </table>
                                 </div>

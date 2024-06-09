@@ -14,6 +14,8 @@ export default function Nav() {
 
     const handleLogout = () => {
         localStorage.removeItem("token");
+        localStorage.removeItem("name");
+        localStorage.removeItem("id");
     }
 
     const handleNavClickAndLogout = (index) => {

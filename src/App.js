@@ -8,6 +8,8 @@ import Status from './Components/Status/Status';
 import Account from './Components/Login&Signup/Account';
 import PrivateRoutes from './Utils/PrivateRoute';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -17,6 +19,17 @@ function App() {
           <header className="App-header">
             <Nav />
           </header>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </div>
 
         <div className='body'>
