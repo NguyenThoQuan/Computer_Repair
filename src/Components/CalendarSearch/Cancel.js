@@ -25,17 +25,13 @@ export default function Cancel({ onClose, appointment }) {
                 <h2>Chi tiết lịch hẹn</h2>
                 <div>
                     <label htmlFor="fullName">Họ và tên</label><br />
-                    <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} /><br />
-                    <label htmlFor="email">Email</label><br />
-                    <input type="text" name="email" value={formData.email} onChange={handleChange} /><br />
+                    <input type="text" name="fullName" value={formData.ticketId.customerId.name} onChange={handleChange} /><br />
                     <label htmlFor="phone">Số điện thoại</label><br />
-                    <input type="text" name="phone" value={formData.phone} onChange={handleChange} /><br />
+                    <input type="text" name="phone" value={formData.ticketId.customerId.phoneNumber} onChange={handleChange} /><br />
                     <label htmlFor="time">Thời gian lịch hẹn</label><br />
-                    <input type="text" name="time" value={formData.time} onChange={handleChange} /><br />
+                    <input type="text" name="time" value={formData.ticketId.time} onChange={handleChange} /><br />
                     <label htmlFor="service">Dịch vụ sử dụng</label><br />
-                    <input type="text" name="service" value={formData.service} onChange={handleChange} /><br />
-                    <label htmlFor="describe">Mô tả</label><br />
-                    <input type="text" name="describe" value={formData.describe} onChange={handleChange} />
+                    <input type="text" name="service" value={formData.serviceId.serviceName} onChange={handleChange} /><br />
                 </div>
                 <div className="button">
                     <button type="submit">Lưu</button>

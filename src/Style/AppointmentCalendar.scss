@@ -1,84 +1,78 @@
 .appointment-calendar {
-    display: flex;
-    justify-content: space-around;
-    padding: 40px 15px;
+    padding: 40px 20px;
 
-    .appointmen-information,
-    .usage-service-information {
-        border: 3px solid #EDF5F4;
-        border-radius: 20px;
-        padding: 10px 30px 30px 30px;
-        width: 300px;
+    .infoBooking {
+        width: 100%;
 
-        .title-appointmen-information,
-        .title-usage-service {
-            border-bottom: 3px solid #EDF5F4;
-            padding-bottom: 20px;
-        }
-
-        label {
-            font-size: 10px;
-            font-weight: bold;
-        }
-
-        input {
-            border: none;
-            background-color: #EDF5F4;
-            border-radius: 5px;
-            padding: 5px;
-            width: 98%;
-        }
-
-        select {
-            border: none;
-            background-color: #EDF5F4;
+        form {
             width: 100%;
-            padding: 5px;
-            border-radius: 5px;
-        }
+            margin: 20px 0px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
 
-        .mo-ta-su-co {
-            height: 25%;
-            width: 96.5%;
-            border: none;
-            border-radius: 5px;
-            background-color: #EDF5F4;
-            padding: 5px;
+            label {
+                display: inline-block;
+                text-align: center;
+                width: 32%;
+                font-size: 24px;
+                font-weight: 700;
+                padding: 10px 0px;
+                background-color: #EDF5F4;
+                border-radius: 20px;
+            }
+
+            input {
+                width: 68%;
+                font-size: 24px;
+                font-weight: 700;
+                padding: 10px;
+                border: 3px solid #EDF5F4;
+                border-radius: 20px;
+            }
+
+            input:focus {
+                outline: none;
+            }
+
+            select {
+                font-size: 24px;
+                font-weight: 700;
+                padding: 10px;
+                border: 3px solid #EDF5F4;
+                border-radius: 20px;
+            }
+
+            .customers {
+                width: 70%;
+            }
+
+            .day,
+            .time {
+                width: 34%;
+            }
+
+            .service {
+                width: 70%;
+            }
         }
 
         button {
             width: 100%;
             background-color: black;
-            color: white;
+            color: #FFF;
+            padding: 15px 0px;
             border: none;
             border-radius: 20px;
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 6px;
+            font-size: 24px;
+            font-weight: 700;
+            transition: background-color 0.42s;
             cursor: pointer;
         }
 
         button:hover {
             background-color: #EDF5F4;
             color: black;
-            transition: 0.5s;
-        }
-    }
-
-    .table-quotation {
-        margin: 0px 15px 22px 0px;
-
-        table {
-            height: 105%;
-
-            th,
-            td {
-                text-align: center;
-                padding: 5px;
-                background-color: #EDF5F4;
-                border-radius: 5px;
-            }
         }
     }
 }

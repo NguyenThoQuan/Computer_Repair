@@ -23,17 +23,13 @@ export default function Calendar({ calendar }) {
                             <h2>Chi tiết lịch hẹn</h2>
                             <div>
                                 <label htmlFor="fullName">Họ và tên</label><br />
-                                <input type="text" value={item.fullName} readOnly /><br />
-                                <label htmlFor="email">Email</label><br />
-                                <input type="text" value={item.email} readOnly /><br />
+                                <input type="text" value={item.ticketId.customerId.name} readOnly /><br />
                                 <label htmlFor="phone">Số điện thoại</label><br />
-                                <input type="text" value={item.phone} readOnly /><br />
+                                <input type="text" value={item.ticketId.customerId.phoneNumber} readOnly /><br />
                                 <label htmlFor="time">Thời gian lịch hẹn</label><br />
-                                <input type="text" value={item.time} readOnly /><br />
+                                <input type="text" value={item.ticketId.time} readOnly /><br />
                                 <label htmlFor="service">Dịch vụ sử dụng</label><br />
-                                <input type="text" value={item.service} readOnly /><br />
-                                <label htmlFor="describe">Mô tả</label><br />
-                                <input type="text" value={item.describe} readOnly />
+                                <input type="text" value={item.serviceId.serviceName} readOnly /><br />
                             </div>
                         </div>
                         <div className="button">

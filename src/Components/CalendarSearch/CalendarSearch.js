@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "./Calendar";
 import InputSearch from "../RepairCondition/Search";
+import { getBookingDetails } from "../../Services/Booking";
 import "../../Style/CalendarSearch.scss"
 
 export default function CalendarSearch() {
-    const [calendar] = useState([
-        { id: "1", fullName: "Nguyen Tho Quan", email: "nguyenthoquan@gmail.com", phone: "0967724934", time: "8:00 AM - 9:00 AM", service: "Dịch vụ 1", describe: "Hỏng ..." },
-        { id: "2", fullName: "Nguyen Viet Hoang", email: "nguyenviethoang@gmail.com", phone: "0934480992", time: "9:00 AM - 10:00 AM", service: "Dịch vụ 3", describe: "Hỏng ..." }
-    ])
+    const [calendar, setCalendar] = useState([])
 
     const [searchPhone, setSearchPhone] = useState("");
 
     const handleSearch = () => {
-        const filteredCalendar = calendar.filter(item => item.phone.includes(searchPhone));
+        const filteredCalendar = calendar.filter(item => item.ticketId.customerId.phoneNumber.includes(searchPhone));
         return filteredCalendar;
     };
+
+    useEffect(() => {
+        getCalendar();
+    }, [])
+
+    const getCalendar = async () => {
+        let res = await getBookingDetails();
+        setCalendar(res.data);
+        console.log("Check data", res.data);
+    }
 
     return (
         <div className="calendar-search">
