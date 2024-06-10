@@ -20,6 +20,10 @@ const login = (username, password) => {
     return axios.post("/staff-auth/login", { username, password })
 }
 
+const getStaffAuth = () => {
+    return axios.get("/staff-auth/")
+}
+
 const postService = async (nameService, description, expectedPrice, serviceUrl) => {
     const formData = new FormData();
     formData.append('nameService', nameService);
@@ -52,4 +56,28 @@ const postStatus = (ticketId, staffUserId, status, price) => {
     return axios.post("/ticketprocess/", { ticketId, staffUserId, status, price })
 }
 
-export { signup, login, postService, getService, getBooking, postStatus };
+const getInvoice = () => {
+    return axios.get("/invoice/")
+}
+
+const patchService = (_id, data) => {
+    return axios.patch(`/services/${_id}`, data);
+}
+
+const patchCalendar = (_id, data) => {
+    return axios.patch(`/ticketdetails/${_id}`, data);
+}
+
+const patchTickets = (_id, data) => {
+    return axios.patch(`/tickets/${_id}`, data);
+}
+
+const deleteCalendar = (_id) => {
+    return axios.delete(`/ticketdetails/${_id}`);
+}
+
+const deleteService = (_id,) => {
+    return axios.delete(`/services/${_id}`);
+}
+
+export { signup, login, postService, getService, getBooking, postStatus, getInvoice, getStaffAuth, deleteCalendar, deleteService, patchCalendar, patchTickets, patchService };

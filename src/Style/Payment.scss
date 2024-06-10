@@ -29,6 +29,24 @@
                     padding: 2px;
                     text-align: left;
                 }
+
+                button {
+                    margin-top: 20px;
+                    width: 100%;
+                    border: none;
+                    background-color: #E7E7FF;
+                    color: #696CFF;
+                    font-weight: bold;
+                    padding: 10px 0px;
+                    border-radius: 20px;
+                    cursor: pointer;
+                }
+
+                button:hover {
+                    background-color: #696CFF;
+                    color: #FFF;
+                    transition: 0.42s;
+                }
             }
         }
     }

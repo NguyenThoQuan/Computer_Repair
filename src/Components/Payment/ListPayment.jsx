@@ -1,8 +1,13 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 export default function ListPayment(props) {
     const { payMent } = props;
 
+    const handleInHoaDon = (event) => {
+        event.preventDefault();
+        toast.success("In hoá đơn thành công !!!")
+    }
     return (
         <div className="payment">
             <h1>Quản lý giao dịch</h1>
@@ -16,25 +21,26 @@ export default function ListPayment(props) {
                                     <table>
                                         <tr>
                                             <td>Mã hóa đơn </td>
-                                            <td>{item.id}</td>
+                                            <td>{item._id}</td>
                                         </tr>
                                         <tr>
-                                            <td>Dịch vụ sử dụng </td>
-                                            <td>{item.paymentService}</td>
+                                            <td>Họ và tên </td>
+                                            <td>{item.ticketId.customerId.name}</td>
                                         </tr>
                                         <tr>
                                             <td>Số điện thoại khách hàng </td>
-                                            <td>{item.phone}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Số tiền cần thanh toán </td>
-                                            <td>{item.needToPay}</td>
+                                            <td>{item.ticketId.customerId.phoneNumber}</td>
                                         </tr>
                                         <tr>
                                             <td>Số tiền thanh toán </td>
+                                            <td>{item.totalPrice}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hình thức thanh toán</td>
                                             <td>{item.payment}</td>
                                         </tr>
                                     </table>
+                                    <button onClick={handleInHoaDon}>In hóa đơn</button>
                                 </div>
                             </div>
                         )

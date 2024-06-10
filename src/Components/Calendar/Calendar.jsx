@@ -20,7 +20,7 @@ export default function Calendar() {
     return (
         <>
             <InputSearch />
-            <ListCalendar calendar={calendar} />
+            <ListCalendar calendar={calendar} setCalendar={setCalendar} />
         </>
     )
 }

@@ -1,11 +1,36 @@
 import React, { useState } from "react";
 import AddService from "./AddService";
+import { deleteService, patchService } from "../../Services/ADService";
 import { PlusLg } from "react-bootstrap-icons";
 import { createPortal } from "react-dom";
+import { toast } from "react-toastify";
 
 export default function ListService(props) {
     const { listServices } = props;
     const [clickAdd, setClickAdd] = useState(false);
+    const [editService, setEditService] = useState(null);
+    const [updatedDescription, setUpdatedDescription] = useState("");
+
+    const handleDeleteService = async (id) => {
+        await deleteService(id);
+        toast.success("Xoá dịch vụ thành công !!!");
+    }
+
+    const handlePatchService = async (id) => {
+        await patchService(id, [{ "propName": "description", "value": updatedDescription }]);
+        toast.success("Sửa dịch vụ thành công !!!");
+        setEditService(null);
+    }
+
+    const handleEditButtonClick = (service) => {
+        setEditService(service);
+        setUpdatedDescription(service.description);
+    }
+
+    const handleSave = (event, id) => {
+        event.preventDefault();
+        handlePatchService(id);
+    }
 
     return (
         <div className="listService">
@@ -19,17 +44,29 @@ export default function ListService(props) {
                             <div className="detailService" key={item.id}>
                                 <h3>{item.serviceName}</h3>
                                 {
-                                    parts.map((item, index) => (
+                                    parts.map((part, index) => (
                                         <span key={index}>
-                                            + {item.trim()}
+                                            + {part.trim()}
                                             <br />
                                         </span>
                                     ))
                                 }
                                 <div className="button">
-                                    <button>Chỉnh sửa</button>
-                                    <button>Xóa</button>
+                                    <button onClick={() => handleEditButtonClick(item)}>Chỉnh sửa</button>
+                                    <button onClick={() => handleDeleteService(item._id)}>Xóa</button>
                                 </div>
+                                {editService && editService._id === item._id && (
+                                    <form>
+                                        <textarea
+                                            value={updatedDescription}
+                                            onChange={(e) => setUpdatedDescription(e.target.value)}
+                                            rows="4"
+                                            cols="50"
+                                        />
+                                        <button onClick={(event) => handleSave(event, item._id)}>Lưu</button>
+                                        <button onClick={() => setEditService(null)}>Hủy</button>
+                                    </form>
+                                )}
                             </div>
                         )
                     })
