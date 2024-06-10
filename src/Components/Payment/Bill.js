@@ -12,11 +12,11 @@ export default function Bill() {
         <div className="bill">
             <form>
                 <h2>Thông tin hóa đơn</h2>
-                <label htmlFor="service">Mã hóa đơn</label><br />
-                <input type="text" value readOnly /><br />
                 <label htmlFor="name">Họ tên khách hàng</label><br />
                 <input type="text" value readOnly /><br />
                 <label htmlFor="phone">Số điện thoại khách hàng</label><br />
+                <input type="text" value readOnly /><br />
+                <label htmlFor="method">Phương thức thanh toán</label><br />
                 <input type="text" value readOnly /><br />
                 <label htmlFor="pay">Số tiền thanh toán</label><br />
                 <input type="text" value readOnly /><br />

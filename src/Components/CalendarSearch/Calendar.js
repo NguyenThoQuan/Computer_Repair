@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Cancel from "./Cancel";
 import { createPortal } from "react-dom";
+import { toast } from "react-toastify";
 
 export default function Calendar({ calendar }) {
     const [showCancel, setShowCancel] = useState(false);
@@ -12,6 +13,11 @@ export default function Calendar({ calendar }) {
         event.preventDefault();
         setSelectedAppointment(appointment);
         setShowCancel(true);
+    }
+
+    const handleHuy = (event) => {
+        event.preventDefault();
+        toast.info("Vui lòng liên hệ nhân viên để được hỗ trợ !!!")
     }
 
     return (
@@ -36,7 +42,7 @@ export default function Calendar({ calendar }) {
                         </div>
                         <div className="button">
                             <button onClick={(event) => handleShowCancel(event, item)}>Chỉnh sửa</button>
-                            <button>Hủy</button>
+                            <button onClick={handleHuy}>Hủy</button>
                         </div>
                     </form>
                 ))

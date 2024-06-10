@@ -32,6 +32,7 @@ export default function AppointmenInformation({ listServices }) {
     }
 
     const handleOnClickButton3 = () => {
+        toast.success("Đặt lịch hẹn thành công !!!")
         handlePostTicketDetails();
     }
 
@@ -89,8 +90,8 @@ export default function AppointmenInformation({ listServices }) {
 
     const handleGetTicket = async () => {
         let res = await getTicket();
-        setListTicket(res.data.result)
-        console.log(res);
+        setListTicket(res.data)
+        console.log("ticket", res);
     }
 
     return (

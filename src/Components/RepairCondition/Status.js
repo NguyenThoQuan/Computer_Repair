@@ -1,7 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Status(props) {
     const { listStatus } = props
+    const navigate = useNavigate();
+
+    const goToAboutPage = () => {
+        navigate('/thanhtoan');
+    };
 
     const hasResults = listStatus.length > 0;
 
@@ -26,7 +32,7 @@ export default function Status(props) {
                             <input type="text" value={item.status} readOnly /><br />
                             <label htmlFor="baoGia">Báo giá</label><br />
                             <input type="text" value={item.price} readOnly /><br /><br />
-                            <button className="progress">Thanh toán</button>
+                            <button className="progress" onClick={goToAboutPage}>Thanh toán</button>
                         </form>
                     ))
                 )

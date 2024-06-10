@@ -15,7 +15,7 @@ export default function Cancel({ onClose, appointment }) {
 
     const handleSave = (event) => {
         event.preventDefault();
-        toast.success("Chỉnh sửa lịch hẹn thành công !!!");
+        toast.info("Vui lòng liên hệ nhân viên để được hỗ trợ !!!")
         onClose();
     }
 

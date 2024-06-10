@@ -13,6 +13,7 @@ export default function Payment() {
     const handleGetTicket = async () => {
         let res = await getTicket();
         setListTicket(res.data);
+        console.log(res.data)
     }
 
     return (
